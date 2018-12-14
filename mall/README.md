@@ -1,0 +1,1 @@
+# React mall template.
