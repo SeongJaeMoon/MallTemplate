@@ -4,12 +4,28 @@ import Slider from "react-slick";
 import Article from './Article';
 
 class LikeNews extends React.Component{
-    state={
-        newsTemplate: null
+    
+    state = {
+        newsTemplate: undefined,
+        windowWidth: false
     }
+
+    handleResize = () => this.setState({
+        windowWidth: window.innerWidth <= 800 ? true : false
+    });
+ 
+    componentDidMount() {
+        this.handleResize();
+        window.addEventListener('resize', this.handleResize)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize)
+    }
+
     render(){
         const { test_news } = this.props.data;
-        const settings = {
+        let settings = {
             dots: true,
             infinite: true,
             speed: 500,
@@ -19,14 +35,18 @@ class LikeNews extends React.Component{
             autoplaySpeed: 4000,
             cssEase: "linear"
         }
+        console.log(this.state.windowWidth);
+        if(this.state.windowWidth){
+            settings.slidesToShow = 1;
+        }else{
+            settings.slidesToShow = 3;
+        }
         if (test_news.length > 0) { 
-            this.newsTemplate = test_news.map(function(item, index) {
-				return (
-                    <div key={index}>
-                        <Article item={item}/>
-                    </div>
-                );
-			})
+            this.newsTemplate = test_news.map((item, index) => (
+                <div key={index}>
+                    <Article item={item}/>
+                </div>
+            ));
 		} else {
 			this.newsTemplate = <p>추천 상품이 비어있습니다.</p>
         }

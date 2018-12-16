@@ -69,7 +69,7 @@ class FooterPage extends React.Component{
             <div className="footer-copyright text-center py-3">
                 <Container fluid>
                 &copy; {new Date().getFullYear()} Copyright:{" "}
-                <a href="#">Supermoon</a>
+                <a href="#">Supermoon All rights reserved.</a>
                 </Container>
             </div>
         </Footer>

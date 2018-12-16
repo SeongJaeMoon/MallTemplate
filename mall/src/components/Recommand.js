@@ -4,6 +4,7 @@ import News from './News';
 import LikeNews from './LikeNews';
 
 class Recommand extends React.Component{
+    
     static defaultProps = {
         test_news:[
             {
@@ -37,11 +38,12 @@ class Recommand extends React.Component{
             }
         ]
     }
+
     render(){
         return(
             <Container>
                 <News data={this.props}/>
-                <LikeNews data={this.props}/>
+                <LikeNews data={this.props}/> 
             </Container>
         );
     }

@@ -2,9 +2,11 @@ import React from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Row, Col} from 'mdbreact';
 
 class Header extends React.Component {
+    
     state = {
         collapseID: "",
-        addClass: false
+        addClass: false,
+        modal: false
     };
     
     toggleCollapse = collapseID => () =>
@@ -17,6 +19,10 @@ class Header extends React.Component {
         this.setState({
             addClass: !addClass
         });
+    }
+
+    toggleModal = () => {
+
     }
 
     render() {
@@ -66,7 +72,7 @@ class Header extends React.Component {
                     </NavItem>
                         <NavbarNav right className="nav-right">
                             <NavItem>
-                                <NavLink className="waves-effect waves-light" to="#!">
+                                <NavLink className="waves-effect waves-light" to="#!" onClick="">
                                 로그인<i className="icon">&#xe801;</i></NavLink>
                             </NavItem>
                             <NavItem>

@@ -9,7 +9,8 @@ class Article extends React.Component{
                 <figcaption>
                     <h3>{item.title}</h3>
                     <h5>{item.subtitle}</h5>
-                </figcaption><a href={item.link}></a>
+                    <a href={item.link}>더보기</a>
+                </figcaption>
             </figure>
         );
     }
